@@ -4,7 +4,7 @@ const FormField = ({
   labelName,
   type,
   name,
-  placeholder,
+  placeHolder,
   value,
   handleChange,
   isSurpriseMe,
@@ -33,7 +33,7 @@ const FormField = ({
         type={type}
         name={name}
         id={name}
-        placeholder={placeholder}
+        placeHolder={placeHolder}
         value={value}
         onChange={handleChange}
         required
