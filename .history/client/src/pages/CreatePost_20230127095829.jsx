@@ -58,7 +58,7 @@ const CreatePost = () => {
         setLoading(false);
       }
     } else {
-      alert('Please enter a valid prompt and generate a image'); X
+      alert('Please enter a valid prompt and generate a image');
     }
   };
   const handleChange = (e) => {

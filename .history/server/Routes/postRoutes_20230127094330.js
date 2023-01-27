@@ -1,7 +1,9 @@
 import express from "express";
 import * as dotenv from "dotenv";
+
+
 import Post from "../mongodb/models/post.js";
-import {  v2 as cloudinary } from "cloudinary";
+import { UploadStream, v2 as cloudinary } from "cloudinary";
 
 dotenv.config();
 const router = express.Router();
@@ -13,21 +15,8 @@ cloudinary.configure({
 });
 
 // get the  all the posts
-router.route('/').get(async(req, res) => {
-  
-    try {
-       const posts = await Post.find({});
-    res.status(200).json({success:true , data:posts}); 
-    } catch (error) {
-    res.status(500).json({success:false , message:error}); 
-        
-    }
-    
-})
-
-//create the posts
-router.route('/').post(async (req, res) => { 
-     try {
+router.route('/').get((req, res) => {
+   try {
      const { name, prompt, photo } = req.body;
 
     const photoUrl = await cloudinary.uploader.upload(photo);
@@ -42,5 +31,8 @@ router.route('/').post(async (req, res) => {
     res.status(500).json({ success:false , message:error})
    };
 })
+
+//create the posts
+router.route('/').post((req, res) => { })
 
 export default router;
