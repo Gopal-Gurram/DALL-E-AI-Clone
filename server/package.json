@@ -2,10 +2,11 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "type":"module",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index"
+    "build": "babel index.js --out-dir build",
+    "start": "nodemon build.index.js"
   },
   "keywords": [],
   "author": "",
@@ -18,5 +19,10 @@
     "mongoose": "^6.9.0",
     "nodemon": "^2.0.20",
     "openai": "^3.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2"
   }
 }
